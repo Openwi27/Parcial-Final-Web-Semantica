@@ -82,6 +82,29 @@ with onto:
         domain = [RestriccionAlimentaria]
         range = [str]
 
+    # 1. Propiedad Inversa
+    class esIncluidaEn(ObjectProperty):
+        domain = [Receta]
+        range = [Dieta]
+        inverse_property = incluye
+
+    # 2. Propiedad Transitiva (Para inferir la composición en cadena)
+    class tieneComponente(ObjectProperty, TransitiveProperty):
+        domain = [EntidadGastronomica]
+        range = [EntidadGastronomica | ComponenteQuimico]
+
+    # Hacemos que compuestaPor y contiene sean subpropiedades de la transitiva
+    # para que la inferencia fluya desde la Receta hasta el Alérgeno
+    compuestaPor.is_a.append(tieneComponente)
+    contiene.is_a.append(tieneComponente)
+
+    # 3. Clase Equivalente / Restricción Universal
+    class DietaSegura(Dieta):
+        # En owlready2, .only() representa owl:allValuesFrom (Restricción universal ∀)
+        # Esto se ajustará posteriormente con el reasoner dependiendo de los alérgenos, 
+        # pero esta es la declaración estructural de la clase inferida.
+        pass
+    
     # Restricciones de la ontologia
     AllDisjoint([CondicionClinica, EntidadGastronomica])
 
