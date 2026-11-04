@@ -1,0 +1,246 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.Salud-AbleNutricion.com/ontologia#"
+     xml:base="http://www.Salud-AbleNutricion.com/ontologia"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.Salud-AbleNutricion.com/ontologia"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.Salud-AbleNutricion.com/ontologia#compuestaPor -->
+
+    <owl:ObjectProperty rdf:about="http://www.Salud-AbleNutricion.com/ontologia#compuestaPor">
+        <rdfs:domain rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+        <rdfs:range rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.Salud-AbleNutricion.com/ontologia#contiene -->
+
+    <owl:ObjectProperty rdf:about="http://www.Salud-AbleNutricion.com/ontologia#contiene">
+        <rdfs:domain rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alergeno"/>
+                    <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Nutriente"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.Salud-AbleNutricion.com/ontologia#contraindica -->
+
+    <owl:ObjectProperty rdf:about="http://www.Salud-AbleNutricion.com/ontologia#contraindica">
+        <rdfs:domain rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#CondicionClinica"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alergeno"/>
+                    <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.Salud-AbleNutricion.com/ontologia#incluye -->
+
+    <owl:ObjectProperty rdf:about="http://www.Salud-AbleNutricion.com/ontologia#incluye">
+        <rdfs:domain rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Dieta"/>
+        <rdfs:range rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.Salud-AbleNutricion.com/ontologia#padece -->
+
+    <owl:ObjectProperty rdf:about="http://www.Salud-AbleNutricion.com/ontologia#padece">
+        <rdfs:domain rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Usuario"/>
+        <rdfs:range rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#CondicionClinica"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.Salud-AbleNutricion.com/ontologia#recibe -->
+
+    <owl:ObjectProperty rdf:about="http://www.Salud-AbleNutricion.com/ontologia#recibe">
+        <rdfs:domain rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Usuario"/>
+        <rdfs:range rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Dieta"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.Salud-AbleNutricion.com/ontologia#caloriasTotales -->
+
+    <owl:DatatypeProperty rdf:about="http://www.Salud-AbleNutricion.com/ontologia#caloriasTotales">
+        <rdfs:domain rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Dieta"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.Salud-AbleNutricion.com/ontologia#nivelSeveridad -->
+
+    <owl:DatatypeProperty rdf:about="http://www.Salud-AbleNutricion.com/ontologia#nivelSeveridad">
+        <rdfs:domain rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#RestriccionAlimentaria"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.Salud-AbleNutricion.com/ontologia#tieneDisponibilidadInventario -->
+
+    <owl:DatatypeProperty rdf:about="http://www.Salud-AbleNutricion.com/ontologia#tieneDisponibilidadInventario">
+        <rdfs:domain rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.Salud-AbleNutricion.com/ontologia#Alergeno -->
+
+    <owl:Class rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alergeno">
+        <rdfs:subClassOf rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#ComponenteQuimico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.Salud-AbleNutricion.com/ontologia#Alimento -->
+
+    <owl:Class rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alimento">
+        <rdfs:subClassOf rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#EntidadGastronomica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.Salud-AbleNutricion.com/ontologia#ComponenteQuimico -->
+
+    <owl:Class rdf:about="http://www.Salud-AbleNutricion.com/ontologia#ComponenteQuimico">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.Salud-AbleNutricion.com/ontologia#CondicionClinica -->
+
+    <owl:Class rdf:about="http://www.Salud-AbleNutricion.com/ontologia#CondicionClinica">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <owl:disjointWith rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#EntidadGastronomica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.Salud-AbleNutricion.com/ontologia#Dieta -->
+
+    <owl:Class rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Dieta">
+        <rdfs:subClassOf rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#EntidadGastronomica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.Salud-AbleNutricion.com/ontologia#EntidadGastronomica -->
+
+    <owl:Class rdf:about="http://www.Salud-AbleNutricion.com/ontologia#EntidadGastronomica">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.Salud-AbleNutricion.com/ontologia#Nutriente -->
+
+    <owl:Class rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Nutriente">
+        <rdfs:subClassOf rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#ComponenteQuimico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.Salud-AbleNutricion.com/ontologia#Patologia -->
+
+    <owl:Class rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Patologia">
+        <rdfs:subClassOf rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#CondicionClinica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.Salud-AbleNutricion.com/ontologia#Persona -->
+
+    <owl:Class rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Persona">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.Salud-AbleNutricion.com/ontologia#Receta -->
+
+    <owl:Class rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta">
+        <rdfs:subClassOf rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#EntidadGastronomica"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#compuestaPor"/>
+                <owl:someValuesFrom rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.Salud-AbleNutricion.com/ontologia#RestriccionAlimentaria -->
+
+    <owl:Class rdf:about="http://www.Salud-AbleNutricion.com/ontologia#RestriccionAlimentaria">
+        <rdfs:subClassOf rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#CondicionClinica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.Salud-AbleNutricion.com/ontologia#Usuario -->
+
+    <owl:Class rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Usuario">
+        <rdfs:subClassOf rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Persona"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
