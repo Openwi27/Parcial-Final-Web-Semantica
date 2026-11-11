@@ -70,9 +70,9 @@ with onto:
         range = [Nutriente | Alergeno]
 
     # Propiedades de datos
-    class tieneDisponibilidadInventario(DataProperty):
-        domain = [Alimento]
-        range = [bool]
+    class tieneEnInventario(ObjectProperty):
+        domain = [Usuario]
+        range = [Alimento]
 
     class caloriasTotales(DataProperty):
         domain = [Dieta]
