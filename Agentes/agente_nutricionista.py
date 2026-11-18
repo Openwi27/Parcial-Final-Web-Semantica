@@ -1,87 +1,60 @@
-
 from rdflib import Graph, Namespace, URIRef
 
 
 class AgenteNutricionista:
 
     def __init__(self, ruta_rdf):
-
-        # Espacio de nombres de la ontología
-        self.EX = Namespace(
-            "http://www.Salud-AbleNutricion.com/ontologia#"
-        )
-
-        # Cargar almacenamiento RDF
+        self.EX = Namespace("http://www.Salud-AbleNutricion.com/ontologia#")
         self.grafo = Graph()
         self.grafo.parse(ruta_rdf, format="turtle")
-
-        print("Agente Nutricionista inicializado.")
-        print("Triples cargados:", len(self.grafo))
-
-
-    # -------------------------------------------------
-    # 1. Resolver nombres o URI de usuarios y recetas
-    # -------------------------------------------------
+        self.grafo.bind("ex", self.EX)
 
     def obtener_uri(self, identificador):
-
-        identificador = str(identificador)
-
-        if identificador.startswith("http://") or identificador.startswith("https://"):
-            return URIRef(identificador)
-
-        return self.EX[identificador]
-
-
-    # -------------------------------------------------
-    # 2. Consultar patologías y restricciones del usuario
-    # -------------------------------------------------
+        if isinstance(identificador, URIRef):
+            return identificador
+        identificador_str = str(identificador)
+        if identificador_str.startswith(
+            "http://"
+        ) or identificador_str.startswith("https://"):
+            return URIRef(identificador_str)
+        return self.EX[identificador_str]
 
     def consultar_condiciones_usuario(self, usuario):
-
         usuario_uri = self.obtener_uri(usuario)
-
         consulta = """
         PREFIX ex: <http://www.Salud-AbleNutricion.com/ontologia#>
 
         SELECT ?condicion ?componente
         WHERE {
             ?usuario ex:padece ?condicion .
-            ?condicion ex:contraindica ?componente .
+            OPTIONAL { ?condicion ex:contraindica ?componente . }
         }
         """
-
         resultados = self.grafo.query(
-            consulta,
-            initBindings={"usuario": usuario_uri}
+            consulta, initBindings={"usuario": usuario_uri}
         )
 
-        componentes_contraindicados = set()
-
         condiciones = {}
+        contraindicaciones = set()
 
         for fila in resultados:
+            c = fila.condicion
+            comp = fila.componente
+            if c not in condiciones:
+                condiciones[c] = set()
+            if comp:
+                contraindicaciones.add(comp)
+                condiciones[c].add(comp)
 
-            condicion = fila.condicion
-            componente = fila.componente
+        return condiciones, contraindicaciones
 
-            componentes_contraindicados.add(componente)
+    def evaluar_receta(self, receta_candidata, usuario):
+        usuario_uri = self.obtener_uri(usuario)
+        receta_uri = self.obtener_uri(receta_candidata["uri_receta"])
 
-            if condicion not in condiciones:
-                condiciones[condicion] = set()
-
-            condiciones[condicion].add(componente)
-
-        return condiciones, componentes_contraindicados
-
-
-    # -------------------------------------------------
-    # 3. Consultar los componentes de una receta
-    # -------------------------------------------------
-
-    def consultar_componentes_receta(self, receta):
-
-        receta_uri = self.obtener_uri(receta)
+        condiciones, contraindicados = self.consultar_condiciones_usuario(
+            usuario_uri
+        )
 
         consulta = """
         PREFIX ex: <http://www.Salud-AbleNutricion.com/ontologia#>
@@ -89,175 +62,38 @@ class AgenteNutricionista:
         SELECT ?alimento ?componente
         WHERE {
             ?receta ex:compuestaPor ?alimento .
-
             ?alimento ex:contiene ?componente .
         }
         """
-
         resultados = self.grafo.query(
-            consulta,
-            initBindings={"receta": receta_uri}
+            consulta, initBindings={"receta": receta_uri}
         )
 
-        componentes = set()
+        alimentos_conflictivos = set()
+        motivos = []
 
         for fila in resultados:
-            componentes.add(fila.componente)
+            alimento = fila.alimento
+            componente = fila.componente
 
-        return componentes
+            if componente in contraindicados:
+                alimentos_conflictivos.add(alimento)
+                for cond, comps in condiciones.items():
+                    if componente in comps:
+                        motivos.append(
+                            {
+                                "alimento": str(alimento).split("#")[-1],
+                                "componente": str(componente).split("#")[-1],
+                                "condicion": str(cond).split("#")[-1],
+                            }
+                        )
 
-
-    # -------------------------------------------------
-    # 4. Evaluar la seguridad de las recetas
-    # -------------------------------------------------
-
-    def evaluar_recetas(self, recetas, usuario):
-
-        condiciones, contraindicados = (
-            self.consultar_condiciones_usuario(usuario)
-        )
-
-        aptas = []
-        no_aptas = []
-
-        for receta in recetas:
-
-            # El Chef entrega diccionarios con el nombre
-            # de la receta. También se aceptan nombres o URI.
-            if isinstance(receta, dict):
-                nombre_receta = receta["nombre"]
-            else:
-                nombre_receta = str(receta)
-
-            componentes = self.consultar_componentes_receta(
-                nombre_receta
-            )
-
-            # No considerar segura una receta sin información
-            if not componentes:
-                no_aptas.append({
-                    "receta": nombre_receta,
-                    "motivo": "No se encontraron componentes en el RDF."
-                })
-                continue
-
-            # Identificar componentes perjudiciales
-            encontrados = componentes.intersection(
-                contraindicados
-            )
-
-            if encontrados:
-
-                motivos = []
-
-                for condicion, componentes_condicion in condiciones.items():
-
-                    afectados = encontrados.intersection(
-                        componentes_condicion
-                    )
-
-                    for componente in afectados:
-
-                        motivos.append({
-                            "condicion": str(condicion).split("#")[-1],
-                            "componente": str(componente).split("#")[-1]
-                        })
-
-                no_aptas.append({
-                    "receta": nombre_receta,
-                    "componentes_perjudiciales": [
-                        str(c).split("#")[-1]
-                        for c in encontrados
-                    ],
-                    "motivos": motivos
-                })
-
-            else:
-
-                aptas.append({
-                    "nombre": nombre_receta,
-                    "estado": "Apta"
-                })
-
-        return {
-            "aptas": aptas,
-            "no_aptas": no_aptas
-        }
-
-
-    # -------------------------------------------------
-    # 5. Ejecutar el agente
-    # -------------------------------------------------
-
-    def ejecutar(self, recetas_recomendadas, usuario):
-
-        print("\nUsuario evaluado:", usuario)
-
-        print("\nConsultando patologías y restricciones...")
-
-        condiciones, componentes = (
-            self.consultar_condiciones_usuario(usuario)
-        )
-
-        print("Condiciones encontradas:", len(condiciones))
-        print("Componentes contraindicados:", len(componentes))
-
-        print("\nEvaluando recetas recomendadas por Chef...")
-
-        resultado = self.evaluar_recetas(
-            recetas_recomendadas,
-            usuario
-        )
-
-        return resultado
-
-
-# -------------------------------------------------
-# 6. Ejecución independiente del agente
-# -------------------------------------------------
-
-if __name__ == "__main__":
-
-    agente = AgenteNutricionista("almacenamientoRDF/dataset_extendido.ttl")
-
-    # Recetas que previamente recomendó el Agente Chef
-    recetas_chef = [
-        "Receta_Pollo_Quinoa",
-        "Receta_Pollo_Soya"
-    ]
-
-    # Usuario para quien se evaluarán las recetas
-    usuario = "Usuario_Carlos"
-
-    resultado = agente.ejecutar(
-        recetas_chef,
-        usuario
-    )
-
-    print("\n========== RECETAS APTAS ==========")
-
-    for receta in resultado["aptas"]:
-        print(receta["nombre"])
-
-    print("\n========== RECETAS NO APTAS ==========")
-
-    for receta in resultado["no_aptas"]:
-
-        print("\nReceta:", receta["receta"])
-
-        if "componentes_perjudiciales" in receta:
-            print(
-                "Componentes perjudiciales:",
-                receta["componentes_perjudiciales"]
-            )
-
-            print("Motivos:")
-
-            for motivo in receta["motivos"]:
-                print(
-                    f" - {motivo['componente']} "
-                    f"(Contraindicado por: {motivo['condicion']})"
-                )
-
+        if alimentos_conflictivos:
+            return {
+                "apta": False,
+                "receta": receta_candidata["nombre"],
+                "motivos": motivos,
+                "ingredientes_a_evitar": alimentos_conflictivos,  # Feedback para el Chef
+            }
         else:
-            print("Motivo:", receta["motivo"])
+            return {"apta": True, "receta": receta_candidata}

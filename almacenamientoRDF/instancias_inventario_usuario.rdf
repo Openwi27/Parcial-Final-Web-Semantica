@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:ex="http://www.Salud-AbleNutricion.com/ontologia#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Pollo_Con_Papa">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pollo"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Papa"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Zanahoria"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Ajo"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Ensalada_Fresca">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Tomate"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Espinaca"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Queso_Fresco"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Aceite_Oliva"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Pasta_Bolognesa">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pasta_Trigo"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Carne_Res"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Tomate"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Cebolla"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Ajo"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Sal">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Sodio"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Pollo_Empanizado">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pollo"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Huevo"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pan_Trigo"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Sal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Leche_Vaca">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Lactosa"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Calcio"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Lentejas_Guisadas">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Lentejas"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Papa"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Tomate"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Cebolla"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Sopa_Lentejas">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Lentejas"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Zanahoria"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Cebolla"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Ajo"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Usuario_Maria">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Usuario"/>
+    <ex:padece rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alergia_Mani"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pollo"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Crema_Mani_Dulce"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Arroz"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Ajo"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Cebolla"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Tomate"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pimenton"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Tortilla_Huevo_Espinaca">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Huevo"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Espinaca"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Aceite_Oliva"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Carne_Salteada_Pimenton">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Carne_Res"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pimenton"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Cebolla"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Ajo"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Pure_Papa">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Papa"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Mantequilla"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Leche_Vaca"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Sal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Ensalada_Tomate_Cebolla">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Tomate"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Cebolla"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Aceite_Oliva"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Sal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Cebolla">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Fibra"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Pollo_Al_Ajo">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pollo"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Ajo"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Aceite_Oliva"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Sal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Salteado_Pollo_Soya">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pollo"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Soya"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pimenton"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Cebolla"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Batido_Proteico_Mani">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Crema_Mani_Dulce"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Banano"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Leche_Vaca"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Sandwich_Pollo">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pan_Trigo"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pollo"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Tomate"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Espinaca"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Ensalada_Manzana_Almendras">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Manzana"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Almendras"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Espinaca"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Intolerancia_Lactosa">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#RestriccionAlimentaria"/>
+    <ex:nivelSeveridad rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Media</ex:nivelSeveridad>
+    <ex:contraindica rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Lactosa"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Avena">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Fibra"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Gluten"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Crema_Zanahoria_Ajo">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Zanahoria"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Ajo"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Aceite_Oliva"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Omelet_Queso">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Huevo"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Queso_Fresco"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Mantequilla"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Pollo_Tomate">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pollo"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Tomate"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Ajo"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Usuario_Juan">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Usuario"/>
+    <ex:padece rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Intolerancia_Lactosa"/>
+    <ex:padece rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Hipertension_Arterial"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Leche_Vaca"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Queso_Fresco"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Sal"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Salmon"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Espinaca"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Aceite_Oliva"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Papa"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Salmon_Al_Horno">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Salmon"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Aceite_Oliva"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Ajo"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Camarones_Empanizados">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Camaron"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Huevo"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pan_Trigo"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Aceite_Oliva"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Lentejas">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Proteina"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Hierro"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Fibra"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Garbanzos">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Proteina"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Fibra"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Pasta_Al_Ajo">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pasta_Trigo"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Ajo"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Aceite_Oliva"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Queso_Fresco"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Soya">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alergeno"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Usuario_Carlos">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Usuario"/>
+    <ex:padece rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Diabetes_Mellitus_Tipo_2"/>
+    <ex:padece rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Enfermedad_Celiaca"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Quinoa"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Tomate"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pan_Trigo"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Espinaca"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Arroz"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Ajo"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Aceite_Oliva"/>
+    <ex:recibe rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Dieta_Miercoles_Carlos"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Pure_Papa_Carne">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Papa"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Carne_Res"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Mantequilla"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Vitamina_C">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Nutriente"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Usuario_Sofia">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Usuario"/>
+    <ex:padece rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Enfermedad_Celiaca"/>
+    <ex:padece rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alergia_Mani"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Almendras"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Quinoa"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Espinaca"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Manzana"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pollo"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Aceite_Oliva"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Sopa_Pollo_Verduras">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pollo"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Papa"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Zanahoria"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Cebolla"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Ajo"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Papa">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Potasio"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Arroz">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Fibra"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pan_Trigo">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Gluten"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Ensalada_Quinoa">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Quinoa"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Tomate"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Aceite_Oliva"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Postre_Banano_Mani">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Banano"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Crema_Mani_Dulce"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Huevo">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Huevos"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Proteina"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Salmon_Con_Verduras">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Salmon"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pimenton"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Zanahoria"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Espinaca"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Queso_Fresco">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Lactosa"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Calcio"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Proteina"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Enfermedad_Celiaca">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#RestriccionAlimentaria"/>
+    <ex:nivelSeveridad rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alta</ex:nivelSeveridad>
+    <ex:contraindica rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Gluten"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Hummus_Garbanzo">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Garbanzos"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Ajo"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Aceite_Oliva"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Sal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Proteina">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Nutriente"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Manzana">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Fibra"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Vitamina_C"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Almendras">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Frutos_Secos"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Calcio"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Salmon_Con_Quinoa">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Salmon"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Quinoa"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Espinaca"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Quinoa">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Fibra"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Proteina"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Potasio"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alergia_Huevo">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#RestriccionAlimentaria"/>
+    <ex:nivelSeveridad rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alta</ex:nivelSeveridad>
+    <ex:contraindica rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Huevos"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Tortilla_Papa">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Huevo"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Papa"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Cebolla"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Aceite_Oliva"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Sopa_Zanahoria">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Zanahoria"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Papa"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Cebolla"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Ajo"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Tostadas_Queso">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pan_Trigo"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Queso_Fresco"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Mantequilla"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Camaron">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Mariscos"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Proteina"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Carne_Al_Horno_Papa">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Carne_Res"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Papa"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Cebolla"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Ajo"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Lentejas_Con_Arroz">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Lentejas"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Arroz"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Cebolla"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Ajo"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Arroz_Verduras">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Arroz"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Zanahoria"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pimenton"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Cebolla"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Espinaca">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Hierro"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Vitamina_C"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Fibra"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pasta_Trigo">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Gluten"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Diabetes_Mellitus_Tipo_2">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Patologia"/>
+    <ex:nivelSeveridad rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alta</ex:nivelSeveridad>
+    <ex:contraindica rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Azucar_Refinada"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Sopa_Garbanzos">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Garbanzos"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Papa"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Zanahoria"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Cebolla"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Pan_Con_Crema_Mani">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pan_Trigo"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Crema_Mani_Dulce"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alergia_Mariscos">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#RestriccionAlimentaria"/>
+    <ex:nivelSeveridad rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Critica</ex:nivelSeveridad>
+    <ex:contraindica rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Mariscos"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pimenton">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Vitamina_C"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Carne_Res">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Proteina"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Hierro"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Potasio">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Nutriente"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Azucar">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Azucar_Refinada"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pollo">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Proteina"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Huevo_Frito_Arroz">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Huevo"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Arroz"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Aceite_Oliva"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Usuario_Luis">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Usuario"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pan_Trigo"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Mantequilla"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Queso_Fresco"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pollo"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Papa"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Zanahoria"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Arroz"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Azucar"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Batido_Verde">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Espinaca"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Manzana"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Banano"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Azucar_Refinada">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alergeno"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Tomate">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Vitamina_C"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Potasio"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Pasta_Con_Camarones">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pasta_Trigo"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Camaron"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Ajo"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Aceite_Oliva"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Zanahoria">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Vitamina_A"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Fibra"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Tofu_Salteado">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Soya"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pimenton"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Cebolla"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Ajo"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Quesadillas_Trigo">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pan_Trigo"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Queso_Fresco"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Arroz_Con_Pollo">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Arroz"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pollo"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pimenton"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Cebolla"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Ajo"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Crema_Mani_Dulce">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Mani"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Azucar_Refinada"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Usuario_Ana">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Usuario"/>
+    <ex:padece rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alergia_Mariscos"/>
+    <ex:padece rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alergia_Huevo"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Camaron"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Huevo"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pasta_Trigo"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Tomate"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Carne_Res"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Ajo"/>
+    <ex:tieneEnInventario rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Cebolla"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Fibra">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Nutriente"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Dieta_Miercoles_Carlos">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Dieta"/>
+    <ex:caloriasTotales rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1800</ex:caloriasTotales>
+    <ex:incluye rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta_Ensalada_Quinoa"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Ensalada_Quinoa_Almendras">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Quinoa"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Almendras"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Manzana"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Espinaca"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Avena_Con_Banano">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Avena"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Banano"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Leche_Vaca"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Aceite_Oliva">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Arroz_Con_Camarones">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Arroz"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Camaron"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pimenton"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Cebolla"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Ensalada_Espinaca_Manzana">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Espinaca"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Manzana"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Aceite_Oliva"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Camaron_Al_Ajo">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Camaron"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Ajo"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Aceite_Oliva"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Sal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Avena_Almendras">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Avena"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Almendras"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Banano"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Mariscos">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alergeno"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alergia_Mani">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#RestriccionAlimentaria"/>
+    <ex:nivelSeveridad rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Critica</ex:nivelSeveridad>
+    <ex:contraindica rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Mani"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Hipertension_Arterial">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Patologia"/>
+    <ex:nivelSeveridad rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alta</ex:nivelSeveridad>
+    <ex:contraindica rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Sodio"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Sandwich_Tomate">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Pan_Trigo"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Tomate"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Queso_Fresco"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Banano">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Potasio"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Fibra"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Salmon">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Omega_3"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Proteina"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Mantequilla">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Lactosa"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Lactosa">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alergeno"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Receta_Crema_Espinaca">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Receta"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Espinaca"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Leche_Vaca"/>
+    <ex:compuestaPor rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Queso_Fresco"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Omega_3">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Nutriente"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Ajo">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Alimento_Soya">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alimento"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Soya"/>
+    <ex:contiene rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Proteina"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Calcio">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Nutriente"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Mani">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alergeno"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Huevos">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alergeno"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Sodio">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alergeno"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Hierro">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Nutriente"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Frutos_Secos">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alergeno"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Vitamina_A">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Nutriente"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.Salud-AbleNutricion.com/ontologia#Gluten">
+    <rdf:type rdf:resource="http://www.Salud-AbleNutricion.com/ontologia#Alergeno"/>
+  </rdf:Description>
+</rdf:RDF>
