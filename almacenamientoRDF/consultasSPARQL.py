@@ -3,7 +3,7 @@ from rdflib import Graph, Namespace
 # 1. Cargar el grafo RDF
 g = Graph()
 # Asegúrate de cargar el archivo .ttl correcto generado en el paso de almacenamiento
-g.parse("almacenamientoRDF/dataset_extendido.ttl", format="turtle")
+g.parse("almacenamientoRDF/instancias_inventario_usuario.ttl", format="turtle")
 
 print("=== EJECUCIÓN DE CONSULTAS SPARQL ===\n")
 

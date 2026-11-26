@@ -1,7 +1,38 @@
-.venv
-PROTEGE
-Agentes
-almacenamientoRDF
-ontologia.owl
-ontologia.py
-Parcial Equipo 1 Web Semantica.md
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Backups y archivos temporales
+*.bak
+*.tmp
+*.log
+
+# Variables de entorno y credenciales
+.env
+.env.*
+
+# IDE / editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Herramientas / software externo
+PROTEGE/
+
+# Build / distribucion
+build/
+dist/
+
+# Datos generados (opcional: descomentar si no se quieren versionar)
+# almacenamientoRDF/instancias_inventario_usuario.*
