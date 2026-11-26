@@ -1,0 +1,331 @@
+{% extends "base.html" %}
+
+{% block title %}{{ super() }} - Inicio{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Sistema Multiagente de Recomendación de Dietas</h1>
+    <p>Selecciona tu perfil, elige los ingredientes disponibles y obtén una receta recomendada
+    aprobada por el agente nutricionista.</p>
+</section>
+
+<div class="tarjetas">
+    <!-- Tarjeta 1: Perfil de usuario -->
+    <article class="tarjeta tarjeta-perfil">
+        <header class="tarjeta-header">
+            <span class="numero">1</span>
+            <h2>Perfil de Usuario</h2>
+        </header>
+        <div class="tarjeta-body">
+            <label class="campo-label">Selecciona tu perfil</label>
+            <select id="usuario" class="select-full" required>
+                <option value="">-- Elige un usuario --</option>
+                {% for u in usuarios_limpios %}
+                <option value="{{ u.id }}">{{ u.label }}</option>
+                {% endfor %}
+            </select>
+            <div id="info-usuario" class="info-nota" style="margin-top:0.5rem;"></div>
+            <p class="nota">Nota: las condiciones clínicas y alergias se consultan automáticamente
+            de la base de conocimiento RDF al evaluar la receta.</p>
+        </div>
+    </article>
+
+    <!-- Tarjeta 2: Ingredientes -->
+    <article class="tarjeta tarjeta-ingredientes">
+        <header class="tarjeta-header">
+            <span class="numero">2</span>
+            <h2>Ingredientes para tu receta</h2>
+        </header>
+        <div class="tarjeta-body">
+            <label class="campo-label">Selecciona los ingredientes que tienes disponibles</label>
+            <div class="buscador-ingredientes">
+                <input type="text" id="filtro-ingredientes" placeholder="Buscar ingrediente...">
+            </div>
+            <div class="checkbox-grid" id="ingredientes-grid">
+                {% for a in alimentos_limpios %}
+                <label class="checkbox-item" data-id="{{ a.id }}" data-label="{{ a.label }}">
+                    <input type="checkbox" name="ingrediente" value="{{ a.id }}" class="chk-ingrediente">
+                    <span>{{ a.label }}</span>
+                </label>
+                {% endfor %}
+            </div>
+            {% if not alimentos %}
+            <p class="nota">No hay ingredientes registrados en la base de datos.</p>
+            {% endif %}
+
+            <div class="acciones" style="margin-top:1rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
+                <button id="btn-limpiar" class="btn btn-outline">🧹 Limpiar todo</button>
+                <button id="btn-buscar" class="btn btn-primary btn-buscar">Buscar receta recomendada</button>
+            </div>
+        </div>
+    </article>
+
+    <!-- Tarjeta 3: Receta recomendada -->
+    <article class="tarjeta tarjeta-receta">
+        <header class="tarjeta-header">
+            <span class="numero">3</span>
+            <h2>Receta Recomendada</h2>
+        </header>
+        <div class="tarjeta-body" id="receta-body">
+            <div id="estado-inicial" class="estado">
+                <p>La receta recomendada aparecerá aquí tras seleccionar tu perfil e ingredientes.</p>
+            </div>
+
+            <!-- Resultado de búsqueda (se inyecta por JS) -->
+            <div id="resultado-receta" class="resultado" style="display:none;">
+                <div class="receta-card">
+                    <h3 id="receta-nombre"></h3>
+                    <div class="receta-meta">
+                        <span class="badge">✅ Apta por el nutricionista</span>
+                        <span class="badge">Coincidencia: <span id="receta-porcentaje"></span>%</span>
+                    </div>
+                    <p><strong>Ingredientes disponibles:</strong> <span id="receta-disponibles"></span></p>
+                    <p><strong>Ingredientes faltantes (máx. 2 tolerados):</strong> <span id="receta-faltantes"></span></p>
+                </div>
+
+                <div class="acciones" style="margin-top:1rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
+                    <button id="btn-aceptar" class="btn btn-success">✅ Aceptar receta</button>
+                    <button id="btn-rechazar" class="btn btn-warning">❌ Rechazar receta</button>
+                </div>
+
+                <div id="mensaje-error" class="mensaje error" style="display:none; margin-top:0.75rem;"></div>
+                <div id="mensaje-exito" class="mensaje exito" style="display:none; margin-top:0.75rem;"></div>
+
+            </div>
+
+            <!-- Mensaje cuando no hay receta apta -->
+            <div id="estado-no-aptas" class="estado advertencia" style="display:none;">
+                <p>⚠️ No se encontró una receta apta que cumpla con las restricciones de tu perfil
+                y los ingredientes seleccionados.</p>
+            </div>
+        </div>
+    </article>
+</div>
+
+<!-- Área de recetas rechazadas (siempre visible, fuera de las tarjetas) -->
+<div id="rechazadas-area" class="rechazadas-area" style="margin-top:1rem; padding:0.75rem; background:#fff3e0; border:1px dashed #ffb300; border-radius:6px;">
+    <div style="font-size:0.85rem; font-weight:600; color:#e65100; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.5rem;">
+        <span>❌</span>
+        Recetas rechazadas:
+    </div>
+    <div id="rechazadas-lista" style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+        <span id="rechazadas-vacio" style="color:#999; font-size:0.85rem;">
+            No hay recetas rechazadas aún. Rechaza una receta para que aparezca aquí.
+        </span>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function limpiarNombre(nombreCompleto) {
+    // Se queda con el identificador si recibe una URI completa
+    let nombre = String(nombreCompleto).split('#').pop();
+    for (const prefijo of ['Alimento_', 'Usuario_', 'Receta_']) {
+        if (nombre.startsWith(prefijo)) {
+            nombre = nombre.slice(prefijo.length);
+            break;
+        }
+    }
+    return nombre.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+}
+
+function mostrarMensaje(elemento, texto) {
+    elemento.textContent = texto;
+    elemento.style.display = texto ? 'block' : 'none';
+}
+
+const USUARIO_SELECT = document.getElementById('usuario');
+const INFO_USUARIO = document.getElementById('info-usuario');
+const FILTRO_INGREDIENTES = document.getElementById('filtro-ingredientes');
+const INGREDIENTES_GRID = document.getElementById('ingredientes-grid');
+const BTN_LIMPIAR = document.getElementById('btn-limpiar');
+const BTN_BUSCAR = document.getElementById('btn-buscar');
+const RESULTADO = document.getElementById('resultado-receta');
+const ESTADO_INICIAL = document.getElementById('estado-inicial');
+const ESTADO_NO_APTAS = document.getElementById('estado-no-aptas');
+const RECETA_NOMBRE = document.getElementById('receta-nombre');
+const RECETA_PORCENTAJE = document.getElementById('receta-porcentaje');
+const RECETA_DISPONIBLES = document.getElementById('receta-disponibles');
+const RECETA_FALTANTES = document.getElementById('receta-faltantes');
+const BTN_ACEPTAR = document.getElementById('btn-aceptar');
+const BTN_RECHAZAR = document.getElementById('btn-rechazar');
+const MENSAJE_ERROR = document.getElementById('mensaje-error');
+const MENSAJE_EXITO = document.getElementById('mensaje-exito');
+const RECHAZADAS_AREA = document.getElementById('rechazadas-area');
+const RECHAZADAS_LISTA = document.getElementById('rechazadas-lista');
+
+let recetaActual = null;
+let ingredientesExcluidos = [];
+let recetasRechazadas = [];
+
+// Mostrar nota breve del usuario seleccionado
+USUARIO_SELECT.addEventListener('change', () => {
+    const val = USUARIO_SELECT.value;
+    INFO_USUARIO.textContent = val ? `Perfil seleccionado: ${limpiarNombre(val)}` : '';
+    resetearResultado();
+});
+
+function resetearResultado() {
+    RESULTADO.style.display = 'none';
+    ESTADO_NO_APTAS.style.display = 'none';
+    ESTADO_INICIAL.style.display = 'block';
+    MENSAJE_ERROR.style.display = 'none';
+    MENSAJE_EXITO.style.display = 'none';
+    recetaActual = null;
+    ingredientesExcluidos = [];
+    // No limpiar recetasRechazadas aquí: se mantiene para que las recetas rechazadas
+    // no se repitan aunque cambie de usuario o se busque de nuevo
+}
+
+// Filtrado de ingredientes disponibles en tiempo real
+FILTRO_INGREDIENTES.addEventListener('input', () => {
+    const termino = FILTRO_INGREDIENTES.value.toLowerCase();
+    const items = INGREDIENTES_GRID.querySelectorAll('.checkbox-item');
+    items.forEach(item => {
+        const label = item.getAttribute('data-label') || '';
+        item.style.display = label.toLowerCase().includes(termino) ? 'flex' : 'none';
+    });
+});
+
+// Obtener lista de ingredientes seleccionados (lee directamente del DOM)
+function obtenerIngredientesSeleccionados() {
+    const checks = INGREDIENTES_GRID.querySelectorAll('.chk-ingrediente:checked');
+    return Array.from(checks).map(c => c.value);
+}
+
+// Acción: limpiar selecciones de ingredientes
+BTN_LIMPIAR.addEventListener('click', () => {
+    const checks = INGREDIENTES_GRID.querySelectorAll('.chk-ingrediente:checked');
+    checks.forEach(cb => cb.checked = false);
+    FILTRO_INGREDIENTES.value = '';
+    const items = INGREDIENTES_GRID.querySelectorAll('.checkbox-item');
+    items.forEach(item => item.style.display = 'flex');
+    mostrarMensaje(MENSAJE_ERROR, '');
+    MENSAJE_EXITO.style.display = 'none';
+});
+
+// Acción: buscar receta recomendada
+BTN_BUSCAR.addEventListener('click', async () => {
+    const usuario = USUARIO_SELECT.value;
+    const ingredientes = obtenerIngredientesSeleccionados();
+
+    if (!usuario) {
+        mostrarMensaje(MENSAJE_ERROR, 'Por favor selecciona un perfil de usuario (tarjeta 1).');
+        MENSAJE_EXITO.style.display = 'none';
+        return;
+    }
+    if (ingredientes.length === 0) {
+        mostrarMensaje(MENSAJE_ERROR, 'Por favor selecciona al menos un ingrediente (tarjeta 2).');
+        MENSAJE_EXITO.style.display = 'none';
+        return;
+    }
+
+    mostrarMensaje(MENSAJE_ERROR, '');
+    MENSAJE_EXITO.style.display = 'none';
+
+    try {
+        const respuesta = await fetch('/recomendar', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                usuario: usuario,
+                ingredientes: ingredientes,
+                excluir: ingredientesExcluidos,
+                rechazadas: recetasRechazadas
+            })
+        });
+        const data = await respuesta.json();
+
+        if (respuesta.ok && data.receta) {
+            recetaActual = data.receta;
+            ingredientesExcluidos = [];
+            mostrarResultado(recetaActual);
+            mostrarMensaje(MENSAJE_EXITO, 'Se encontró una receta apta aprobada por el nutricionista.');
+        } else {
+            resetearResultado();
+            ESTADO_INICIAL.style.display = 'none';
+            ESTADO_NO_APTAS.style.display = 'block';
+            mostrarMensaje(MENSAJE_ERROR, data.error || 'No se pudo obtener una receta apta.');
+        }
+    } catch (err) {
+        resetearResultado();
+        ESTADO_INICIAL.style.display = 'none';
+        ESTADO_NO_APTAS.style.display = 'block';
+        mostrarMensaje(MENSAJE_ERROR, 'Error al comunicarse con el servidor.');
+    }
+});
+
+function mostrarResultado(receta) {
+    ESTADO_INICIAL.style.display = 'none';
+    ESTADO_NO_APTAS.style.display = 'none';
+    RESULTADO.style.display = 'block';
+
+    RECETA_NOMBRE.textContent = limpiarNombre(receta.nombre);
+    RECETA_PORCENTAJE.textContent = receta.porcentaje;
+    RECETA_DISPONIBLES.textContent = receta.disponibles.map(limpiarNombre).join(', ') || '—';
+    RECETA_FALTANTES.textContent = receta.faltantes.map(limpiarNombre).join(', ') || '—';
+    recetaActual = receta;
+}
+
+// Acción: aceptar receta
+BTN_ACEPTAR.addEventListener('click', () => {
+    if (!recetaActual) return;
+    mostrarMensaje(MENSAJE_EXITO, `Has aceptado la receta "${limpiarNombre(recetaActual.nombre)}". ¡Buen provecho!`);
+    MENSAJE_ERROR.style.display = 'none';
+    BTN_ACEPTAR.disabled = true;
+    BTN_RECHAZAR.disabled = true;
+});
+
+// Acción: rechazar receta -> agregar a rechazadas y buscar otra
+BTN_RECHAZAR.addEventListener('click', () => {
+    if (!recetaActual) return;
+
+    // Agregar la receta rechazada para que no se proponga de nuevo
+    if (recetaActual.uri_receta && !recetasRechazadas.includes(recetaActual.uri_receta)) {
+        recetasRechazadas.push(recetaActual.uri_receta);
+        actualizarListaRechazadas();
+    }
+
+    // Ocultar resultado y volver al estado inicial (el usuario puede buscar de nuevo)
+    RESULTADO.style.display = 'none';
+    ESTADO_INICIAL.style.display = 'block';
+    MENSAJE_ERROR.style.display = 'none';
+    MENSAJE_EXITO.style.display = 'none';
+    recetaActual = null;
+});
+
+// Función para actualizar la visualización de recetas rechazadas
+function actualizarListaRechazadas() {
+    RECHAZADAS_LISTA.innerHTML = '';
+    RECHAZADAS_AREA.style.display = 'block'; // Siempre visible
+    if (recetasRechazadas.length === 0) {
+        const vacio = document.createElement('span');
+        vacio.id = 'rechazadas-vacio';
+        vacio.style.color = '#999';
+        vacio.style.fontSize = '0.85rem';
+        vacio.textContent = 'No hay recetas rechazadas aún. Rechaza una receta para que aparezca aquí.';
+        RECHAZADAS_LISTA.appendChild(vacio);
+        return;
+    }
+    recetasRechazadas.forEach(uri => {
+        const nombre = limpiarNombre(uri);
+        const chip = document.createElement('span');
+        chip.className = 'chip-rechazado';
+        chip.textContent = nombre;
+        const quitar = document.createElement('span');
+        quitar.className = 'chip-quitar-rechazado';
+        quitar.textContent = '✕';
+        quitar.title = 'Quitar de rechazadas';
+        quitar.onclick = (e) => {
+            e.stopPropagation();
+            recetasRechazadas = recetasRechazadas.filter(u => u !== uri);
+            actualizarListaRechazadas();
+        };
+        chip.appendChild(quitar);
+        RECHAZADAS_LISTA.appendChild(chip);
+    });
+}
+
+</script>
+{% endblock %}

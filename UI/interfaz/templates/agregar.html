@@ -1,0 +1,225 @@
+{% extends "base.html" %}
+
+{% block title %}{{ super() }} - Agregar datos{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Agregar información a la base de datos RDF</h1>
+    <p>Registra nuevos usuarios, alimentos, condiciones clínicas y recetas, o modifica las condiciones de un usuario existente. Los datos se persisten en los archivos <code>instancias_inventario_usuario.ttl</code> y <code>.rdf</code> de <b>almacenamientoRDF/</b>.</p>
+</section>
+
+<div class="formulario-agregar">
+    <form method="POST" action="{{ url_for('agregar') }}">
+        <div class="selector-tipo">
+            <label class="campo-label">¿Qué deseas agregar?</label>
+            <select name="tipo" id="tipo" class="select-full" required onchange="toggleSecciones()">
+                <option value="">-- Selecciona un tipo --</option>
+                <option value="usuario">👤 Usuario</option>
+                <option value="alimento">🥗 Alimento</option>
+                <option value="condicion">🩺 Condición clínica</option>
+                <option value="receta">🍲 Receta</option>
+                <option value="editar_usuario" {% if request.args.get('editar') %}selected{% endif %}>✏️ Modificar condiciones de un usuario</option>
+            </select>
+        </div>
+
+        <!-- SECCIÓN: USUARIO -->
+        <fieldset id="sec-usuario" class="seccion" style="display:none;">
+            <legend>Datos del Usuario</legend>
+            <div class="fila">
+                <div>
+                    <label class="campo-label">Nombre de usuario <span class="requerido">*</span></label>
+                    <input type="text" name="nombre_usuario" class="input-full" data-requerido="1" placeholder="Ej: Pedro">
+                </div>
+            </div>
+            <div class="fila">
+                <div>
+                    <label class="campo-label">Condiciones clínicas (padece)</label>
+                    <div class="checkbox-grid" id="grid-condiciones">
+                        {% for c in condiciones_limpios %}
+                        <label class="checkbox-item" data-id="{{ c.id }}" data-label="{{ c.label }}">
+                            <input type="checkbox" name="condiciones" value="{{ c.id }}" class="chk-seleccion">
+                            <span>{{ c.label }}</span>
+                        </label>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- SECCIÓN: ALIMENTO -->
+        <fieldset id="sec-alimento" class="seccion" style="display:none;">
+            <legend>Datos del Alimento</legend>
+            <div class="fila">
+                <div>
+                    <label class="campo-label">Nombre del alimento <span class="requerido">*</span></label>
+                    <input type="text" name="nombre_alimento" class="input-full" data-requerido="1" placeholder="Ej: Tofu">
+                </div>
+            </div>
+            <div class="fila">
+                <div>
+                    <label class="campo-label">Componentes químicos que contiene</label>
+                    <div class="checkbox-grid" id="grid-componentes">
+                        {% for c in componentes_limpios %}
+                        <label class="checkbox-item" data-id="{{ c.id }}" data-label="{{ c.label }}">
+                            <input type="checkbox" name="componentes" value="{{ c.id }}" class="chk-seleccion">
+                            <span>{{ c.label }}</span>
+                        </label>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- SECCIÓN: CONDICIÓN -->
+        <fieldset id="sec-condicion" class="seccion" style="display:none;">
+            <legend>Datos de la Condición Clínica</legend>
+            <div class="fila">
+                <div style="flex:1;">
+                    <label class="campo-label">Nombre de la condición <span class="requerido">*</span></label>
+                    <input type="text" name="nombre_condicion" class="input-full" data-requerido="1" placeholder="Ej: Intolerancia gluten">
+                </div>
+                <div style="flex:1;">
+                    <label class="campo-label">Tipo <span class="requerido">*</span></label>
+                    <select name="tipo_condicion" class="input-full" data-requerido="1">
+                        <option value="">--</option>
+                        <option value="Patologia">Patología</option>
+                        <option value="RestriccionAlimentaria">Restricción alimentaria</option>
+                    </select>
+                </div>
+            </div>
+            <div class="fila">
+                <div style="flex:1;">
+                    <label class="campo-label">Severidad <span class="requerido">*</span></label>
+                    <select name="severidad" class="input-full" data-requerido="1">
+                        <option value="">--</option>
+                        <option value="Baja">Baja</option>
+                        <option value="Media">Media</option>
+                        <option value="Alta">Alta</option>
+                        <option value="Critica">Crítica</option>
+                    </select>
+                </div>
+                <div style="flex:1;">
+                    <label class="campo-label">Componente contraindicado <span class="requerido">*</span></label>
+                    <select name="contraindica" class="input-full" data-requerido="1">
+                        <option value="">--</option>
+                        {% for c in componentes_limpios %}
+                        <option value="{{ c.id }}">{{ c.label }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- SECCIÓN: RECETA -->
+        <fieldset id="sec-receta" class="seccion" style="display:none;">
+            <legend>Datos de la Receta</legend>
+            <div class="fila">
+                <div>
+                    <label class="campo-label">Nombre de la receta <span class="requerido">*</span></label>
+                    <input type="text" name="nombre_receta" class="input-full" data-requerido="1"
+                           placeholder="Ej: Pasta con tomate">
+                </div>
+            </div>
+            <div class="fila">
+                <div>
+                    <label class="campo-label">Ingredientes de la receta <span class="requerido">*</span></label>
+                    <p class="ayuda">Selecciona al menos un alimento. Estos ingredientes son los que el
+                    Agente Chef usará para comparar la receta con el inventario del usuario.</p>
+                    <div class="checkbox-grid" id="grid-ingredientes-receta">
+                        {% for a in alimentos_limpios %}
+                        <label class="checkbox-item" data-id="{{ a.id }}" data-label="{{ a.label }}">
+                            <input type="checkbox" name="ingredientes_receta" value="{{ a.id }}" class="chk-seleccion">
+                            <span>{{ a.label }}</span>
+                        </label>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- SECCIÓN: MODIFICAR CONDICIONES DE UN USUARIO -->
+        <fieldset id="sec-editar_usuario" class="seccion" style="display:none;">
+            <legend>Modificar condiciones clínicas de un usuario</legend>
+            <div class="fila">
+                <div>
+                    <label class="campo-label" for="usuario_editar">Usuario <span class="requerido">*</span></label>
+                    <select name="usuario_editar" id="usuario_editar" class="input-full"
+                            data-requerido="1" onchange="cargarCondicionesUsuario()">
+                        <option value="">-- Selecciona un usuario --</option>
+                        {% for u in usuarios_limpios %}
+                        <option value="{{ u.id }}"
+                                data-condiciones="{{ condiciones_por_usuario.get(u.id, []) | join(',') }}"
+                                {% if request.args.get('editar') == u.id %}selected{% endif %}>{{ u.label }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="fila">
+                <div>
+                    <label class="campo-label">Condiciones clínicas que padece</label>
+                    <p class="ayuda">Marca o desmarca las condiciones del usuario. Al guardar se reemplazan
+                    las que tenga registradas actualmente.</p>
+                    <div class="checkbox-grid" id="grid-condiciones-usuario">
+                        {% for c in condiciones_limpios %}
+                        <label class="checkbox-item" data-id="{{ c.id }}" data-label="{{ c.label }}">
+                            <input type="checkbox" name="condiciones_usuario" value="{{ c.id }}" class="chk-seleccion">
+                            <span>{{ c.label }}</span>
+                        </label>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="acciones" style="margin-top:1.5rem;">
+            <button type="submit" class="btn btn-primary">💾 Guardar en base de datos RDF</button>
+            <a href="{{ url_for('index') }}" class="btn btn-outline">Volver al inicio</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function toggleSecciones() {
+    const tipo = document.getElementById('tipo').value;
+    ['usuario', 'alimento', 'condicion', 'receta', 'editar_usuario'].forEach(function (seccion) {
+        const bloque = document.getElementById('sec-' + seccion);
+        if (!bloque) return;
+        const activa = (seccion === tipo);
+        bloque.style.display = activa ? 'block' : 'none';
+        bloque.querySelectorAll('input, select, textarea').forEach(function (campo) {
+            // Las secciones ocultas se deshabilitan: un campo disabled no se valida
+            // ni se envía, así el navegador no puede bloquear el submit con
+            // "An invalid form control ... is not focusable".
+            campo.disabled = !activa;
+            // Los campos obligatorios solo exigen valor en la sección activa.
+            if (campo.hasAttribute('data-requerido')) {
+                campo.required = activa;
+            }
+        });
+    });
+}
+
+// Marca automáticamente las condiciones que ya tiene el usuario seleccionado.
+function cargarCondicionesUsuario() {
+    const select = document.getElementById('usuario_editar');
+    const contenedor = document.getElementById('grid-condiciones-usuario');
+    if (!select || !contenedor) return;
+
+    const opcion = select.options[select.selectedIndex];
+    const crudo = (opcion && opcion.dataset.condiciones) ? opcion.dataset.condiciones : '';
+    const seleccionadas = crudo ? crudo.split(',') : [];
+
+    contenedor.querySelectorAll('input[type="checkbox"]').forEach(function (chk) {
+        chk.checked = seleccionadas.indexOf(chk.value) !== -1;
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    toggleSecciones();
+    cargarCondicionesUsuario();
+});
+
+</script>
+{% endblock %}
