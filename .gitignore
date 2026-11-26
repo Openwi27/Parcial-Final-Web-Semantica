@@ -34,5 +34,5 @@ PROTEGE/
 build/
 dist/
 
-# Datos generados (opcional: descomentar si no se quieren versionar)
-# almacenamientoRDF/instancias_inventario_usuario.*
+# Datos generados
+almacenamientoRDF/instancias_inventario_usuario.*
